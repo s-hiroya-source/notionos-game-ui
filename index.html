@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>LifeWorld OS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">NOTIONOS OPEN WORLD UI</div>
+        <h1>LifeWorld OS</h1>
+      </div>
+      <div class="status-badge">SAMPLE DATA</div>
+    </header>
+
+    <nav class="tabs" aria-label="Main navigation">
+      <button class="tab is-active" data-screen="world">WORLD</button>
+      <button class="tab" data-screen="quests">QUESTS</button>
+      <button class="tab" data-screen="character">CHARACTER</button>
+      <button class="tab" data-screen="lab">SYSTEM LAB</button>
+    </nav>
+
+    <main>
+      <section class="screen is-active" id="world">
+        <div class="hero-grid">
+          <article class="panel panel-accent">
+            <div class="panel-label">CURRENT POSITION</div>
+            <h2>霧の境界で、新しい進路を探索中</h2>
+            <p>世界の状況と自分の状態を見ながら、次のQuestへ進む準備をしている。</p>
+            <div class="chip-row">
+              <span class="chip">World State</span><span class="chip">Player State</span><span class="chip">Resources</span>
+            </div>
+          </article>
+          <article class="panel">
+            <div class="panel-label">NEXT SIGNAL</div>
+            <h3>次に見るべきものが、まだ自動で決まらない</h3>
+            <p class="muted">この不便は、UI実験上の重要な摩擦として残してある。</p>
+            <span class="tag experimental">Hypothesis</span>
+          </article>
+        </div>
+
+        <div class="world-map">
+          <button class="world-node" data-detail="principles"><span>🧭</span><strong>COMPASS</strong><small>原則・構成</small></button>
+          <button class="world-node" data-detail="archive"><span>🗃️</span><strong>ARCHIVE</strong><small>原典・記憶</small></button>
+          <button class="world-node" data-detail="guild"><span>🧠</span><strong>AI GUILD</strong><small>能力・Skill</small></button>
+          <button class="world-node" data-detail="hub"><span>🎮</span><strong>HUB</strong><small>Interface</small></button>
+          <button class="world-node" data-detail="evolution"><span>🧪</span><strong>EVOLUTION LAB</strong><small>品質・改善</small></button>
+        </div>
+
+        <article class="panel detail-panel" id="world-detail">
+          <div class="panel-label">WORLD INFO</div>
+          <h3>ノードを選ぶと、この世界での役割が表示される</h3>
+          <p class="muted">説明文を読む前に、配置と操作で関係が分かるかを試すための画面。</p>
+        </article>
+      </section>
+
+      <section class="screen" id="quests">
+        <div class="section-head"><div><div class="eyebrow">QUEST FLOW</div><h2>人生を進める単位</h2></div><div class="mode-switch"><button class="mode is-active">作用</button><button class="mode">維持</button><button class="mode">探索</button></div></div>
+        <div class="quest-chain">
+          <article class="quest-card"><span class="step">REGION</span><h3>暮らしと仕事の再設計</h3><p>Theme / Quest Line</p></article>
+          <div class="arrow">→</div>
+          <article class="quest-card active"><span class="step">QUEST</span><h3>LifeWorld OSを触れる形にする</h3><p>Project</p></article>
+          <div class="arrow">→</div>
+          <article class="quest-card"><span class="step">ACTION</span><h3>UIの不足感を記録する</h3><p>Task / Experiment</p></article>
+          <div class="arrow">→</div>
+          <article class="quest-card"><span class="step">EVIDENCE</span><h3>操作後の違和感・発見</h3><p>Play Log</p></article>
+        </div>
+        <article class="panel warning-panel"><div class="panel-label">FRICTION</div><h3>「今どのActionを選ぶ？」はまだ手動</h3><p>World State × Player State × Quest × Resource から次のActionを決める仕組みは未採用。</p><span class="tag experimental">Candidate</span></article>
+      </section>
+
+      <section class="screen" id="character">
+        <div class="section-head"><div><div class="eyebrow">PLAYER STATE</div><h2>Character</h2></div><span class="status-badge">DEMO PLAYER</span></div>
+        <div class="character-grid">
+          <article class="panel avatar-panel"><div class="avatar">◈</div><h3>PLAYER 01</h3><p class="muted">世界を進める主体。能力ではなく、現在状態も重要な入力になる。</p></article>
+          <article class="panel resources">
+            <div class="resource"><div><span>ENERGY</span><strong id="energy-value">68</strong></div><input id="energy" type="range" min="0" max="100" value="68"></div>
+            <div class="resource"><div><span>ATTENTION</span><strong id="attention-value">54</strong></div><input id="attention" type="range" min="0" max="100" value="54"></div>
+            <div class="resource"><div><span>TIME BUFFER</span><strong id="time-value">42</strong></div><input id="time" type="range" min="0" max="100" value="42"></div>
+            <div class="resource"><div><span>RESOURCE BUFFER</span><strong id="buffer-value">61</strong></div><input id="buffer" type="range" min="0" max="100" value="61"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="screen" id="lab">
+        <div class="section-head"><div><div class="eyebrow">SYSTEM EXPERIMENTS</div><h2>System Lab</h2></div><span class="tag experimental">Experimental Area</span></div>
+        <div class="lab-grid" id="lab-grid"></div>
+        <article class="panel score-panel"><div class="panel-label">PLAYABILITY</div><div class="score-grid"><div><span>ORIENTATION</span><strong id="score-orientation">72</strong></div><div><span>ACTIONABILITY</span><strong id="score-action">46</strong></div><div><span>AWARENESS</span><strong id="score-awareness">63</strong></div><div><span>RECOVERY</span><strong id="score-recovery">51</strong></div><div><span>LEARNING</span><strong id="score-learning">66</strong></div></div></article>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
