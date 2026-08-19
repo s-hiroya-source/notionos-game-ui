@@ -3,96 +3,287 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="theme-color" content="#06141a" />
+  <meta name="description" content="LifeWorld OS — NotionOSをオープンワールドゲームとして体感するUI sandbox" />
   <title>LifeWorld OS</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <div>
-        <div class="eyebrow">NOTIONOS OPEN WORLD UI</div>
-        <h1>LifeWorld OS</h1>
+  <div class="game-shell">
+    <header class="game-topbar">
+      <div class="brand-lockup">
+        <span class="brand-rune">◈</span>
+        <div>
+          <strong>LifeWorld OS</strong>
+          <small>notionOS game interface · public sandbox</small>
+        </div>
       </div>
-      <div class="status-badge">SAMPLE DATA</div>
+      <div class="source-status">
+        <span class="source-dot"></span>
+        <span>STRUCTURE-FAITHFUL SAMPLE</span>
+      </div>
     </header>
 
-    <nav class="tabs" aria-label="Main navigation">
-      <button class="tab is-active" data-screen="world">WORLD</button>
-      <button class="tab" data-screen="quests">QUESTS</button>
-      <button class="tab" data-screen="character">CHARACTER</button>
-      <button class="tab" data-screen="lab">SYSTEM LAB</button>
-    </nav>
+    <main class="game-main">
+      <section class="screen is-active world-screen" id="world" aria-label="World">
+        <div class="world-canvas">
+          <img class="world-art" src="assets/world-scene.svg" alt="山、森、川、塔が広がるLifeWorld OSのオープンワールド" />
+          <div class="world-vignette"></div>
 
-    <main>
-      <section class="screen is-active" id="world">
-        <div class="hero-grid">
-          <article class="panel panel-accent">
-            <div class="panel-label">CURRENT POSITION</div>
-            <h2>霧の境界で、新しい進路を探索中</h2>
-            <p>世界の状況と自分の状態を見ながら、次のQuestへ進む準備をしている。</p>
-            <div class="chip-row">
-              <span class="chip">World State</span><span class="chip">Player State</span><span class="chip">Resources</span>
+          <aside class="hud hud-player glass">
+            <div class="hud-kicker">CURRENT STATE</div>
+            <div class="hud-title">人生OS v0.1を実運用</div>
+            <div class="hud-line"><span>作戦</span><strong>未来 → 判断 → 実験 → 観測 → 更新</strong></div>
+            <div class="hud-line"><span>制約</span><strong>構造を増やす前に実運用で検証</strong></div>
+            <div class="hud-tags"><span>現在地</span><span>稼働中</span></div>
+          </aside>
+
+          <aside class="hud hud-radar glass">
+            <div class="mini-map" aria-hidden="true">
+              <span class="map-ring ring-a"></span>
+              <span class="map-ring ring-b"></span>
+              <span class="map-route"></span>
+              <i class="map-pin pin-a"></i><i class="map-pin pin-b"></i><i class="map-pin pin-c"></i>
+              <b class="player-arrow">▲</b>
+              <em>N</em>
             </div>
-          </article>
-          <article class="panel">
-            <div class="panel-label">NEXT SIGNAL</div>
-            <h3>次に見るべきものが、まだ自動で決まらない</h3>
-            <p class="muted">この不便は、UI実験上の重要な摩擦として残してある。</p>
-            <span class="tag experimental">Hypothesis</span>
-          </article>
-        </div>
+            <div class="radar-label">WORLD SENSOR</div>
+            <div class="radar-row"><span>未来</span><span>潮流</span><span>機会</span><span>成立境界</span></div>
+          </aside>
 
-        <div class="world-map">
-          <button class="world-node" data-detail="principles"><span>🧭</span><strong>COMPASS</strong><small>原則・構成</small></button>
-          <button class="world-node" data-detail="archive"><span>🗃️</span><strong>ARCHIVE</strong><small>原典・記憶</small></button>
-          <button class="world-node" data-detail="guild"><span>🧠</span><strong>AI GUILD</strong><small>能力・Skill</small></button>
-          <button class="world-node" data-detail="hub"><span>🎮</span><strong>HUB</strong><small>Interface</small></button>
-          <button class="world-node" data-detail="evolution"><span>🧪</span><strong>EVOLUTION LAB</strong><small>品質・改善</small></button>
-        </div>
+          <aside class="hud hud-quest glass">
+            <div class="hud-kicker">ACTIVE QUEST</div>
+            <h2>notionOS ゲームUI</h2>
+            <p>NotionOSを、人生をプレイしながら理解できるUIへ翻訳する。</p>
+            <div class="objective is-done"><span>✓</span><div><strong>GitHub Pagesで公開</strong><small>実物を触れる状態まで接続</small></div></div>
+            <div class="objective"><span>◆</span><div><strong>現行機能をゲーム機能へ配置</strong><small>今あるものだけを世界へ出す</small></div></div>
+            <div class="quest-foot">PROJECT.DB → QUEST</div>
+          </aside>
 
-        <article class="panel detail-panel" id="world-detail">
-          <div class="panel-label">WORLD INFO</div>
-          <h3>ノードを選ぶと、この世界での役割が表示される</h3>
-          <p class="muted">説明文を読む前に、配置と操作で関係が分かるかを試すための画面。</p>
-        </article>
-      </section>
+          <div class="world-markers" aria-label="NotionOS landmarks">
+            <button class="landmark lm-rules" data-landmark="rules"><span class="beacon"></span><b>WORLD RULES</b><small>NotionOS設計原則</small></button>
+            <button class="landmark lm-map" data-landmark="map"><span class="beacon"></span><b>SYSTEM MAP</b><small>NotionOSシステムマップ</small></button>
+            <button class="landmark lm-archive" data-landmark="archive"><span class="beacon"></span><b>ARCHIVE</b><small>原典・記憶・証拠</small></button>
+            <button class="landmark lm-guild" data-landmark="guild"><span class="beacon"></span><b>AI GUILD</b><small>AI台帳 / Harness / Skill</small></button>
+            <button class="landmark lm-hub" data-landmark="hub"><span class="beacon"></span><b>HUB</b><small>表示・入力・接続</small></button>
+            <button class="landmark lm-lab" data-landmark="lab"><span class="beacon"></span><b>EVOLUTION LAB</b><small>品質ループ・改善基盤</small></button>
+            <button class="landmark lm-future" data-landmark="future"><span class="beacon warm"></span><b>FUTURE BEACON</b><small>未来仮説</small></button>
+            <button class="landmark lm-region" data-landmark="region"><span class="beacon warm"></span><b>QUEST REGION</b><small>Subject / Theme</small></button>
+          </div>
 
-      <section class="screen" id="quests">
-        <div class="section-head"><div><div class="eyebrow">QUEST FLOW</div><h2>人生を進める単位</h2></div><div class="mode-switch"><button class="mode is-active">作用</button><button class="mode">維持</button><button class="mode">探索</button></div></div>
-        <div class="quest-chain">
-          <article class="quest-card"><span class="step">REGION</span><h3>暮らしと仕事の再設計</h3><p>Theme / Quest Line</p></article>
-          <div class="arrow">→</div>
-          <article class="quest-card active"><span class="step">QUEST</span><h3>LifeWorld OSを触れる形にする</h3><p>Project</p></article>
-          <div class="arrow">→</div>
-          <article class="quest-card"><span class="step">ACTION</span><h3>UIの不足感を記録する</h3><p>Task / Experiment</p></article>
-          <div class="arrow">→</div>
-          <article class="quest-card"><span class="step">EVIDENCE</span><h3>操作後の違和感・発見</h3><p>Play Log</p></article>
-        </div>
-        <article class="panel warning-panel"><div class="panel-label">FRICTION</div><h3>「今どのActionを選ぶ？」はまだ手動</h3><p>World State × Player State × Quest × Resource から次のActionを決める仕組みは未採用。</p><span class="tag experimental">Candidate</span></article>
-      </section>
+          <section class="landmark-info glass" id="landmark-info" aria-live="polite">
+            <div class="landmark-icon">◎</div>
+            <div>
+              <div class="hud-kicker">WORLD INFO</div>
+              <h3>ランドマークを選択</h3>
+              <p>世界に置かれた施設は、現行NotionOSに実在する役割だけで構成しています。</p>
+            </div>
+          </section>
 
-      <section class="screen" id="character">
-        <div class="section-head"><div><div class="eyebrow">PLAYER STATE</div><h2>Character</h2></div><span class="status-badge">DEMO PLAYER</span></div>
-        <div class="character-grid">
-          <article class="panel avatar-panel"><div class="avatar">◈</div><h3>PLAYER 01</h3><p class="muted">世界を進める主体。能力ではなく、現在状態も重要な入力になる。</p></article>
-          <article class="panel resources">
-            <div class="resource"><div><span>ENERGY</span><strong id="energy-value">68</strong></div><input id="energy" type="range" min="0" max="100" value="68"></div>
-            <div class="resource"><div><span>ATTENTION</span><strong id="attention-value">54</strong></div><input id="attention" type="range" min="0" max="100" value="54"></div>
-            <div class="resource"><div><span>TIME BUFFER</span><strong id="time-value">42</strong></div><input id="time" type="range" min="0" max="100" value="42"></div>
-            <div class="resource"><div><span>RESOURCE BUFFER</span><strong id="buffer-value">61</strong></div><input id="buffer" type="range" min="0" max="100" value="61"></div>
-          </article>
+          <div class="world-log glass">
+            <span>[WORLD]</span> 現在地をロードしました<br />
+            <span>[SENSOR]</span> 外界観測レーダー 4系統が稼働中<br />
+            <span>[RULE]</span> 原典と派生情報を分離
+          </div>
         </div>
       </section>
 
-      <section class="screen" id="lab">
-        <div class="section-head"><div><div class="eyebrow">SYSTEM EXPERIMENTS</div><h2>System Lab</h2></div><span class="tag experimental">Experimental Area</span></div>
-        <div class="lab-grid" id="lab-grid"></div>
-        <article class="panel score-panel"><div class="panel-label">PLAYABILITY</div><div class="score-grid"><div><span>ORIENTATION</span><strong id="score-orientation">72</strong></div><div><span>ACTIONABILITY</span><strong id="score-action">46</strong></div><div><span>AWARENESS</span><strong id="score-awareness">63</strong></div><div><span>RECOVERY</span><strong id="score-recovery">51</strong></div><div><span>LEARNING</span><strong id="score-learning">66</strong></div></div></article>
+      <section class="screen menu-screen" id="quests" aria-label="Quests">
+        <div class="menu-backdrop"></div>
+        <div class="menu-header">
+          <div><span class="menu-kicker">ACTIVITY MODEL</span><h1>Quest Log</h1></div>
+          <span class="menu-note">Subject → Project → Object(Task)</span>
+        </div>
+        <div class="quest-layout">
+          <aside class="menu-panel quest-lines">
+            <h2>QUEST LINES / REGIONS</h2>
+            <button class="quest-line is-active" data-quest="lifeworld"><span>01</span><div><b>NotionOSを体感する</b><small>Subject / Theme</small></div></button>
+            <button class="quest-line" data-quest="ai"><span>02</span><div><b>AIとの文脈共有</b><small>Subject / Theme</small></div></button>
+            <button class="quest-line" data-quest="future"><span>03</span><div><b>未来から現在を変える</b><small>Subject / Theme</small></div></button>
+            <div class="model-legend"><b>Subject</b><p>複数のProjectを評価する「意味・問い・世界の切り方」。</p></div>
+          </aside>
+
+          <section class="menu-panel quest-detail" id="quest-detail">
+            <div class="quest-badge">MAIN QUEST</div>
+            <h2>LifeWorld OS / notionOS ゲームUI</h2>
+            <p class="lead">NotionOSの現行構造を、説明書ではなく「人生をプレイする画面」へ翻訳し、触った不便から不足機能を発見する。</p>
+            <div class="quest-meta"><span>PROJECT</span><b>稼働中</b><span>WORLD</span><b>NotionOS</b></div>
+            <div class="quest-objectives">
+              <h3>OBJECTIVES / TASKS</h3>
+              <div class="objective-row done"><i>✓</i><div><b>Public Repositoryを作成</b><small>GitHubをUI実装の正本にする</small></div><em>DONE</em></div>
+              <div class="objective-row done"><i>✓</i><div><b>GitHub Pagesで公開</b><small>実際に触れるブラウザ環境を作る</small></div><em>DONE</em></div>
+              <div class="objective-row active"><i>◆</i><div><b>現行NotionOSをゲーム機能へ配置</b><small>存在しない機能は足さず、現在ある役割だけを翻訳</small></div><em>ACTIVE</em></div>
+              <div class="objective-row"><i>◇</i><div><b>操作して違和感を観測</b><small>現実・観測 / 会話原典へ戻せるEvidenceにする</small></div><em>NEXT</em></div>
+            </div>
+          </section>
+
+          <aside class="menu-panel quest-structure">
+            <h2>QUEST STRUCTURE</h2>
+            <div class="chain-node region"><span>REGION</span><b>Theme / Subject</b><small>意味・問い・判断軸</small></div>
+            <div class="chain-link"></div>
+            <div class="chain-node project"><span>QUEST</span><b>Project</b><small>有限時間の仮説・試行</small></div>
+            <div class="chain-link"></div>
+            <div class="chain-node task"><span>OBJECTIVE</span><b>Task / Object</b><small>世界へ直接作用する行為</small></div>
+            <div class="chain-link"></div>
+            <div class="chain-node evidence"><span>RESULT</span><b>現実・観測</b><small>結果を上位へ返す</small></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen menu-screen" id="character" aria-label="Character">
+        <div class="menu-backdrop character-bg"></div>
+        <div class="menu-header">
+          <div><span class="menu-kicker">PLAYER / CAPABILITIES</span><h1>Character & Loadout</h1></div>
+          <span class="menu-note">自己モデル × AI能力 × ツール × 資源</span>
+        </div>
+        <div class="character-layout">
+          <section class="menu-panel character-stage">
+            <div class="ability-ring">
+              <button class="gear-node g-north" data-gear="direction"><b>COMPASS</b><small>人生の指向</small></button>
+              <button class="gear-node g-ne" data-gear="traits"><b>TRAITS</b><small>Pattern.DB</small></button>
+              <button class="gear-node g-se" data-gear="tools"><b>TOOLS</b><small>ツール.DB</small></button>
+              <button class="gear-node g-south" data-gear="resources"><b>RESOURCES</b><small>7資産モデル</small></button>
+              <button class="gear-node g-sw" data-gear="skills"><b>SKILLS</b><small>Skill / Module</small></button>
+              <button class="gear-node g-nw" data-gear="loadout"><b>LOADOUT</b><small>標準AIハーネス</small></button>
+              <div class="character-silhouette" aria-hidden="true">
+                <svg viewBox="0 0 220 420" role="img" aria-label="冒険者のシルエット">
+                  <defs><linearGradient id="cloak" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#256b73"/><stop offset="1" stop-color="#0d2833"/></linearGradient></defs>
+                  <circle cx="112" cy="62" r="35" fill="#172229"/>
+                  <path d="M78 96 Q112 80 146 99 L166 220 L185 340 L146 325 L128 404 L103 404 L89 326 L42 349 L67 218Z" fill="url(#cloak)" stroke="#c9a764" stroke-width="2"/>
+                  <path d="M86 122 L139 119 L148 231 L76 231Z" fill="#302a25"/>
+                  <path d="M78 142 L48 231 M143 142 L176 229" stroke="#ad8f5b" stroke-width="12" stroke-linecap="round"/>
+                  <path d="M93 230 L86 357 M130 230 L141 357" stroke="#25201e" stroke-width="24" stroke-linecap="round"/>
+                  <circle cx="127" cy="195" r="7" fill="#63e7ff" filter="drop-shadow(0 0 8px #63e7ff)"/>
+                </svg>
+              </div>
+            </div>
+            <div class="gear-info" id="gear-info">
+              <span class="menu-kicker">SELECT EQUIPMENT</span>
+              <h2>標準AIハーネス</h2>
+              <p>問いに応じて必要なModuleとContextだけを選ぶ、自動Loadout。</p>
+            </div>
+          </section>
+
+          <section class="menu-panel capability-panel">
+            <div class="panel-title-row"><h2>AUTO LOADOUT</h2><span>標準AIハーネス v3.3</span></div>
+            <div class="capability-type"><b>BASE</b><span>AI協働</span><span>証拠・確度・反証</span><span>回答設計</span></div>
+            <div class="capability-type"><b>WORLD</b><span>動的構造理解</span><span>関係的介入</span><span>Less is more的創造</span></div>
+            <div class="capability-type"><b>INVENTION</b><span>可能性・創造</span><span>第一原理</span><span>持続・展開</span></div>
+            <div class="capability-type"><b>ACTIVITY</b><span>活動構造</span></div>
+            <div class="type-legend">
+              <div><i>CTX</i><b>Context</b><small>Passive Lens / Stance</small></div>
+              <div><i>MOD</i><b>Module</b><small>Ability</small></div>
+              <div><i>SKL</i><b>Skill</b><small>Technique</small></div>
+              <div><i>HNS</i><b>Harness</b><small>Loadout / Build</small></div>
+              <div><i>AGT</i><b>Agent</b><small>Companion</small></div>
+              <div><i>SYS</i><b>System</b><small>Game System</small></div>
+            </div>
+          </section>
+
+          <aside class="menu-panel resource-panel">
+            <h2>RESOURCE MODEL</h2>
+            <p class="panel-copy">現在値のメーターは作らず、NotionOSに既にある「7資産」という資源カテゴリだけを表示。</p>
+            <div class="resource-list">
+              <div><span>◷</span><b>時間</b><small>期限・可処分時間・タイミング</small></div>
+              <div><span>♟</span><b>ヒト</b><small>関係・信頼・ネットワーク</small></div>
+              <div><span>⬡</span><b>モノ</b><small>道具・設備・空間</small></div>
+              <div><span>◈</span><b>カネ</b><small>現金・信用・投資余力</small></div>
+              <div><span>✦</span><b>アタマ</b><small>知識・技術・判断力</small></div>
+              <div><span>♡</span><b>ココロ</b><small>注意・意欲・余白</small></div>
+              <div><span>♜</span><b>カラダ</b><small>健康・体力・回復力</small></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen menu-screen" id="journal" aria-label="Journal">
+        <div class="menu-backdrop journal-bg"></div>
+        <div class="menu-header">
+          <div><span class="menu-kicker">SAVE / MEMORY / REPLAY</span><h1>Journal & Archive</h1></div>
+          <span class="menu-note">原典を失わず、意味と記憶を育てる</span>
+        </div>
+        <div class="journal-layout">
+          <aside class="menu-panel journal-tabs" role="tablist">
+            <button class="journal-tab is-active" data-journal="events"><span>◎</span><div><b>WORLD EVENT LOG</b><small>現実・観測.DB</small></div></button>
+            <button class="journal-tab" data-journal="dialogue"><span>❝</span><div><b>DIALOGUE LOG</b><small>会話原典.DB</small></div></button>
+            <button class="journal-tab" data-journal="evidence"><span>◇</span><div><b>EVIDENCE ARCHIVE</b><small>証拠・ファイル.DB</small></div></button>
+            <button class="journal-tab" data-journal="replay"><span>◉</span><div><b>REPLAY / JOURNAL</b><small>日記.DB / 振り返り</small></div></button>
+            <button class="journal-tab" data-journal="lore"><span>✦</span><div><b>COMPENDIUM</b><small>ノート.DB</small></div></button>
+          </aside>
+
+          <section class="menu-panel journal-content" id="journal-content">
+            <div class="journal-heading"><div><span class="menu-kicker">WORLD EVENT LOG</span><h2>現実・観測.DB</h2></div><span class="record-type">SOURCE</span></div>
+            <p>出来事・観察・行動・結果・反応・記憶・外部ソースを、解釈前の一次記録として残す。</p>
+            <div class="log-list">
+              <article><time>WORLD EVENT</time><b>GitHub PagesでLifeWorld OSを公開</b><small>結果：ブラウザでページ表示を確認</small></article>
+              <article><time>OBSERVATION</time><b>初期UIが「ゲーム」ではなくダッシュボードに見えた</b><small>反応：探索画面・装備画面の身体感覚が必要</small></article>
+              <article><time>CHANGE</time><b>ゲーム機能と現行NotionOS機能を再照合</b><small>判断ではなく観測として、後の設計へ接続</small></article>
+            </div>
+          </section>
+
+          <aside class="menu-panel save-flow">
+            <h2>SAVE FLOW</h2>
+            <div class="save-node"><span>1</span><div><b>RECALL</b><small>記録回収</small></div></div>
+            <div class="save-arrow">↓</div>
+            <div class="save-node"><span>2</span><div><b>ROUTE</b><small>保存・分類ルーター</small></div></div>
+            <div class="save-arrow">↓</div>
+            <div class="save-node"><span>3</span><div><b>CONFIRM</b><small>本人確認</small></div></div>
+            <div class="save-arrow">↓</div>
+            <div class="save-node"><span>4</span><div><b>SAVE TO SOURCE</b><small>既存の正本へ</small></div></div>
+            <p>Manual Save型。AIの確信度が高くても、保存前確認を省略しない。</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen menu-screen" id="lab" aria-label="System Lab">
+        <div class="menu-backdrop lab-bg"></div>
+        <div class="menu-header">
+          <div><span class="menu-kicker">EVOLUTION / QUALITY</span><h1>System Lab</h1></div>
+          <span class="menu-note">現行NotionOS品質ループ v0.8</span>
+        </div>
+        <div class="lab-layout">
+          <aside class="menu-panel lab-modes">
+            <h2>EXECUTION MODE</h2>
+            <button class="lab-mode is-active" data-mode="patrol"><span>01</span><div><b>巡回</b><small>未知の問題探索</small></div></button>
+            <button class="lab-mode" data-mode="test"><span>02</span><div><b>テスト</b><small>既知の期待・変更後確認</small></div></button>
+            <button class="lab-mode" data-mode="review"><span>03</span><div><b>レビュー</b><small>統合・原因・対応判断</small></div></button>
+          </aside>
+
+          <section class="menu-panel lab-process" id="lab-process">
+            <div class="lab-heading"><span class="menu-kicker">PATROL MODE</span><h2>巡回 → Quality Case</h2></div>
+            <p>固定した問題を前提にせず、検索 → 候補抽出 → 必要箇所の深読みで、未知の差異・滞留・構造負債を探す。</p>
+            <div class="process-track">
+              <div><span>01</span><b>TRIGGER</b><small>手動起動 / 変更イベント</small></div><i>→</i>
+              <div><span>02</span><b>HARNESS</b><small>巡回・検証ハーネス</small></div><i>→</i>
+              <div><span>03</span><b>EVIDENCE</b><small>差異・根拠を収集</small></div><i>→</i>
+              <div><span>04</span><b>CASE</b><small>共通品質ケース</small></div>
+            </div>
+            <div class="quality-profiles">
+              <span>構造整合性</span><span>運用ループ</span><span>鮮度・現実同期</span><span>簡素性・構造負債</span>
+            </div>
+          </section>
+
+          <aside class="menu-panel patch-panel">
+            <h2>PATCH LOOP</h2>
+            <div class="patch-row"><b>実行フィードバック</b><small>利用結果・反応・問題</small></div>
+            <div class="patch-row"><b>改善実験</b><small>変更候補を限定検証</small></div>
+            <div class="patch-row"><b>定義履歴</b><small>過去定義と変更理由</small></div>
+            <div class="patch-row"><b>本人承認</b><small>必要な変更だけ実装</small></div>
+            <div class="patch-row"><b>回帰確認</b><small>同条件で再テスト</small></div>
+            <div class="origin-switch"><span>Optimization</span><span>Evolution</span></div>
+          </aside>
+        </div>
       </section>
     </main>
-  </div>
 
+    <nav class="game-nav" aria-label="Main game menu">
+      <button class="nav-item is-active" data-screen="world"><span>◎</span><b>WORLD</b><kbd>1</kbd></button>
+      <button class="nav-item" data-screen="quests"><span>▱</span><b>QUESTS</b><kbd>2</kbd></button>
+      <button class="nav-item" data-screen="character"><span>♙</span><b>CHARACTER</b><kbd>3</kbd></button>
+      <button class="nav-item" data-screen="journal"><span>▤</span><b>JOURNAL</b><kbd>4</kbd></button>
+      <button class="nav-item" data-screen="lab"><span>⚗</span><b>SYSTEM LAB</b><kbd>5</kbd></button>
+    </nav>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>

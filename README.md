@@ -10,35 +10,37 @@ This repository is intentionally **sample-data only**.
 - No personal data
 - No health, legal, financial, or family data
 - No secrets or tokens
-- Current NotionOS capabilities and experimental UI hypotheses must be visually distinguished
+- Current NotionOS capabilities are translated into game UI using structurally faithful labels and public-safe examples
+- Missing/future capabilities are **not** shown as current features
 
 ## Goal
 
 The UI should help a player feel, without reading a manual:
 
 1. Where am I now?
-2. What can I do next?
-3. What abilities or systems are available?
-4. What resources constrain action?
-5. What mechanism feels missing?
+2. What quests and actions already exist?
+3. What abilities, tools, memory systems, and world sensors are available?
+4. How does NotionOS preserve experience and improve itself?
+5. When a necessary game function is absent from the screen, is that absence evidence of a real system gap?
 
-The goal is not to build a game-looking Notion dashboard. The game metaphor is used only when it makes the system easier to understand through interaction.
+The goal is not to build a game-looking Notion dashboard. The game metaphor is used when it makes NotionOS easier to understand through interaction.
 
-## Prototype screens
+## Current screens
 
-- **WORLD** — world state and system map
-- **QUESTS** — theme → project → action flow
-- **CHARACTER** — player state and resources
-- **SYSTEM LAB** — enable/disable current systems and compare experimental candidates
+- **WORLD** — open-world exploration view of current NotionOS regions and systems
+- **QUESTS** — Subject → Project → Task → Result as quest structure
+- **CHARACTER** — self model, AI loadout, tools, and the seven-resource model
+- **JOURNAL** — source logs, dialogue, evidence, reflection, knowledge, and save flow
+- **SYSTEM LAB** — current NotionOS quality / patch loop
 
 ## Tech
 
-Plain HTML, CSS, and JavaScript. No build step is required.
+Plain HTML, CSS, JavaScript, and an original SVG world scene. No build step is required.
 
-Open `index.html` locally, or publish the `main` branch with GitHub Pages.
+Open `index.html` locally, or use the GitHub Pages site from the `main` branch.
 
 ## Development
 
-`main` should remain usable. Prefer small, meaningful commits. Experimental concepts must be marked as `Experimental`, `Hypothesis`, or `Candidate` until they are validated.
+`main` should remain usable. Prefer small, meaningful commits. Do not add personal data to the public sandbox.
 
 See [`AGENTS.md`](./AGENTS.md) for Codex instructions.
